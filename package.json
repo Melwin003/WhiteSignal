@@ -2,15 +2,24 @@
   "name": "fusion-starter",
   "private": true,
   "type": "module",
-  "homepage": "https://Melwin003.github.io/WhiteSignal",
+  "pkg": {
+    "assets": [
+      "dist/spa/*"
+    ],
+    "scripts": [
+      "dist/server/**/*.js"
+    ]
+  },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "gh-pages -d dist",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build",
+    "build:server": "vite build --config vite.config.server.ts",
+    "start": "node dist/server/node-build.mjs",
     "test": "vitest --run",
     "format.fix": "prettier --write .",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "deploy": "gh-pages -d dist/spa"
   },
   "dependencies": {
     "dotenv": "^17.2.0",
