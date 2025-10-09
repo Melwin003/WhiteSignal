@@ -12,7 +12,7 @@ import Watchlist from "./pages/Watchlist";
 import Disclaimer from "./pages/Disclaimer";
 import Terms from "./pages/Terms";
 import NotFound from "./pages/NotFound";
-import Privacy from "./pages/Privacy"; 
+import Privacy from "./pages/privacy"; 
 
 const queryClient = new QueryClient();
 
