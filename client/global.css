@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * WhiteSignal dark theme colors
+   * Based on Figma design with dark background (#11120D) and cream accents (#D8CFBC)
+   */
+  :root {
+    /* Main brand colors from design */
+    --brand-dark: 60 7% 7%; /* #11120D */
+    --brand-cream: 46 23% 73%; /* #D8CFBC */
+    --brand-white: 49 100% 97%; /* #FFFBF4 */
+
+    /* Core theme colors */
+    --background: 60 7% 7%; /* Dark background */
+    --foreground: 49 100% 97%; /* Light text */
+
+    --card: 0 0% 0%; /* Black cards */
+    --card-foreground: 49 100% 97%;
+
+    --popover: 60 7% 7%;
+    --popover-foreground: 49 100% 97%;
+
+    --primary: 0 0% 0%; /* Black primary */
+    --primary-foreground: 0 0% 100%; /* White text on black */
+
+    --secondary: 60 7% 15%; /* Darker variant */
+    --secondary-foreground: 49 100% 97%;
+
+    --muted: 46 23% 73%; /* Cream for muted content */
+    --muted-foreground: 60 7% 7%; /* Dark text on cream */
+
+    --accent: 46 23% 73%; /* Cream accent */
+    --accent-foreground: 60 7% 7%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%; /* Subtle borders */
+    --input: 60 7% 15%;
+    --ring: 49 100% 97%;
+
+    --radius: 0.5rem;
+  }
+
+  .light {
+    --background: 46 23% 73%; /* Cream background for light sections */
+    --foreground: 60 7% 7%; /* Dark text */
+
+    --card: 0 0% 100%; /* White cards */
+    --card-foreground: 60 7% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 60 7% 7%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 60 7% 7%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 51%;
+
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 60 7% 7%;
+
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 60 7% 7%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom utility classes for WhiteSignal */
+  .brand-dark {
+    background-color: hsl(var(--brand-dark));
+  }
+
+  .brand-cream {
+    background-color: hsl(var(--brand-cream));
+  }
+
+  .text-brand-cream {
+    color: hsl(var(--brand-cream));
+  }
+
+  .text-brand-white {
+    color: hsl(var(--brand-white));
+  }
+}
+
+@layer utilities {
+  .animate-item {
+    opacity: 0;
+    transform: translateY(12px);
+    transition-property: opacity, transform, filter;
+    transition-duration: 600ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform, filter;
+  }
+  .animate-item.visible {
+    opacity: 1;
+    transform: none;
+  }
+  .animate-item.scale-in { transform: scale(0.98); }
+  .animate-item.slide-left { transform: translateX(-24px); }
+  .animate-item.slide-right { transform: translateX(24px); }
+  .animate-item.fade-up { transform: translateY(16px); }
+  .animate-item.pop { transform: scale(0.9); }
+  .animate-item.pop.visible { animation: pop-in 500ms cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+  @keyframes pop-in {
+    0% { transform: scale(0.9); }
+    60% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+  }
+}
