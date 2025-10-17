@@ -18,31 +18,35 @@ export default function StockSelector({
 
   useEffect(() => {
     if (query.length < 1 || selectedCompany) {
-      // ✅ Don’t fetch if already selected
       setResults([]);
       return;
     }
-
-    const fetchCompanies = async () => {
+  
+    const fetchFromCache = async () => {
       setLoading(true);
       try {
-        const res = await fetch(
-          `https://35.225.124.79.sslip.io/webhook/api/search-company?query=${encodeURIComponent(
-            query
-          )}`
+        const res = await fetch("/stocks.json");
+        const data: Company[] = await res.json();
+  
+        // ✅ Filter locally (instant)
+        const filtered = data.filter(
+          (c) =>
+            c.issuer.toLowerCase().includes(query.toLowerCase()) ||
+            c.security.toLowerCase().includes(query.toLowerCase())
         );
-        const data = await res.json();
-        setResults(data || []);
+  
+        setResults(filtered.slice(0, 20)); // limit to 20 results
       } catch (err) {
-        console.error("API error:", err);
+        console.error("Cache fetch error:", err);
         setResults([]);
       }
       setLoading(false);
     };
-
-    const timeout = setTimeout(fetchCompanies, 300);
+  
+    const timeout = setTimeout(fetchFromCache, 200);
     return () => clearTimeout(timeout);
   }, [query, selectedCompany]);
+  
 
   const handleSelect = (company: Company) => {
     setSelectedCompany(company);   // save chosen company

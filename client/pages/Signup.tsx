@@ -244,8 +244,8 @@ export default function Signup() {
                   <input
                     type="radio"
                     name="frequency"
-                    value="weekly"
-                    checked={frequency === "weekly"}
+                    value="weekly (Beta)"
+                    checked={frequency === "weekly (Beta)"}
                     onChange={() => setFrequency("weekly")}
                     className="peer sr-only"
                   />
@@ -255,7 +255,7 @@ export default function Signup() {
                                   peer-checked:border-black peer-checked:ring-1 peer-checked:ring-black">
                     <div className="flex items-start gap-3">
                       <div>
-                        <div className="text-base font-semibold text-black">Weekly</div>
+                        <div className="text-base font-semibold text-black">Weekly (Beta)</div>
                         <div className="text-sm text-gray-600">A polished summary every week.</div>
                       </div>
                     </div>
