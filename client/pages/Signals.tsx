@@ -214,12 +214,12 @@ export default function Signals() {
             </Badge>
           </div>
 
-          {/* Confidence + Alert Clarification Note */}
+          {/* Clarification Note */}
           <div className="max-w-6xl mx-auto mb-12 text-center bg-[#111418]/60 border border-[#d8cfbc]/20 rounded-lg px-6 sm:px-8 py-4 text-[0.88rem] sm:text-[0.95rem] text-[#d8cfbc]/85 leading-relaxed backdrop-blur-md">
             <p className="mb-2">
               <strong>Note:</strong> The “Confidence” value displayed on each
               signal card reflects the
-              <em> signal’s data integrity and extraction accuracy</em>, it
+              <em> signal’s data integrity and extraction accuracy</em>. It
               measures how certain the system is about the correctness of the
               underlying data,
               <span className="font-semibold text-[#fffbf4]">
@@ -231,8 +231,8 @@ export default function Signals() {
             <p>
               The “<strong>Buy Alert</strong>” and “<strong>Sell Alert</strong>”
               labels indicate reported
-              <em> insider trading disclosures</em> from public filings. They
-              are presented solely
+              <em> insider trading disclosures</em> from public filings. They are
+              presented solely
               <span className="font-semibold text-[#fffbf4]">
                 {" "}
                 for informational and educational purposes
@@ -265,73 +265,66 @@ export default function Signals() {
                 <div className="relative rounded-2xl">
                   <div className="absolute inset-0 rounded-2xl p-[1.5px] bg-[conic-gradient(from_180deg_at_50%_50%,rgba(255,251,244,0.15)_0deg,rgba(216,207,188,0.05)_160deg,transparent_260deg,rgba(255,251,244,0.15)_360deg)] opacity-70 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
-                  <Card className="relative bg-gradient-to-br from-[#111418]/90 via-[#0d0f10]/95 to-[#15191a]/90 border border-[#d8cfbc]/20 rounded-2xl backdrop-blur-2xl overflow-hidden transition-all duration-500 ease-out shadow-[0_2px_12px_rgba(0,0,0,0.6)] group-hover:shadow-[0_8px_48px_rgba(255,251,244,0.25)] group-hover:translate-y-[-1px]">
-                    <CardContent className="relative p-6 md:p-7 space-y-3 text-[#e8e8e8] leading-relaxed">
-                      <div className="flex items-start justify-between gap-3">
-                        <h3 className="text-[1.15rem] md:text-lg font-semibold tracking-tight text-[#fffbf4] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
-                          {signal.company ?? "—"}
-                        </h3>
-                      </div>
+                  {/* ⬇️ Card wrapped in anchor link */}
+                  <a
+                    href={signal.source_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block group/link"
+                  >
+                    <Card className="relative bg-gradient-to-br from-[#111418]/90 via-[#0d0f10]/95 to-[#15191a]/90 border border-[#d8cfbc]/20 rounded-2xl backdrop-blur-2xl overflow-hidden transition-all duration-500 ease-out shadow-[0_2px_12px_rgba(0,0,0,0.6)] group-hover:shadow-[0_8px_48px_rgba(255,251,244,0.25)] group-hover:translate-y-[-1px] hover:cursor-pointer">
+                      <CardContent className="relative p-6 md:p-7 space-y-3 text-[#e8e8e8] leading-relaxed">
+                        <div className="flex items-start justify-between gap-3">
+                          <h3 className="text-[1.15rem] md:text-lg font-semibold tracking-tight text-[#fffbf4] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+                            {signal.company ?? "—"}
+                          </h3>
+                          <span className="text-[0.7rem] text-[#fffbf4]/70 italic">
+                            🔗 View PDF
+                          </span>
+                        </div>
 
-                      <div className="space-y-1 text-[0.85rem] md:text-sm text-[#d8cfbc]/90">
-                        <div className="flex items-center gap-2">
-                          <User size={14} className="text-[#d8cfbc]" />
-                          <p>
-                            <strong>Role:</strong> {signal.role ?? "—"}
-                          </p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Repeat size={14} className="text-[#d8cfbc]" />
-                          <p>
-                            <strong>Action:</strong> {signal.action ?? "—"}
-                          </p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <CalendarDays
-                            size={14}
-                            className="text-[#d8cfbc]"
-                          />
-                          <p>
-                            <strong>Date:</strong> {signal.date ?? "—"}
-                          </p>
-                        </div>
-                        {signal.note && (
-                          <div className="flex items-start gap-2">
-                            <FileText
-                              size={14}
-                              className="text-[#d8cfbc] mt-0.5"
-                            />
-                            <p>
-                              <strong>Note:</strong> {signal.note}
-                            </p>
+                        <div className="space-y-1 text-[0.85rem] md:text-sm text-[#d8cfbc]/90">
+                          <div className="flex items-center gap-2">
+                            <User size={14} className="text-[#d8cfbc]" />
+                            <p><strong>Role:</strong> {signal.role ?? "—"}</p>
                           </div>
-                        )}
-                      </div>
-
-                      <div className="flex items-center justify-between pt-3 md:pt-4 border-t border-[#fffbf4]/15">
-                        <div className="flex items-center gap-2">
-                          <TrendingUp size={14} className="text-[#d8cfbc]" />
-                          <Badge
-                            variant={
-                              signal.type === "Buy Alert"
-                                ? "default"
-                                : "destructive"
-                            }
-                            className={`${
-                              signal.type === "Buy Alert"
-                                ? "bg-[#fffbf4] text-[#0a0c0d]"
-                                : "bg-[#8b2c2c]/80 text-[#f5f5f5]"
-                            } text-[10px] md:text-xs px-3 py-1 rounded-full tracking-wide shadow-[inset_0_0_6px_rgba(255,251,244,0.1)] backdrop-blur-md`}
-                          >
-                            {signal.type}
-                          </Badge>
+                          <div className="flex items-center gap-2">
+                            <Repeat size={14} className="text-[#d8cfbc]" />
+                            <p><strong>Action:</strong> {signal.action ?? "—"}</p>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <CalendarDays size={14} className="text-[#d8cfbc]" />
+                            <p><strong>Date:</strong> {signal.date ?? "—"}</p>
+                          </div>
+                          {signal.note && (
+                            <div className="flex items-start gap-2">
+                              <FileText size={14} className="text-[#d8cfbc] mt-0.5" />
+                              <p><strong>Note:</strong> {signal.note}</p>
+                            </div>
+                          )}
                         </div>
-                        <span className="text-[0.7rem] md:text-xs text-[#fffbf4]/80 px-2 py-0.5 rounded-full border border-[#fffbf4]/20 bg-black/20">
-                          {signal.confidence}
-                        </span>
-                      </div>
-                    </CardContent>
-                  </Card>
+
+                        <div className="flex items-center justify-between pt-3 md:pt-4 border-t border-[#fffbf4]/15">
+                          <div className="flex items-center gap-2">
+                            <TrendingUp size={14} className="text-[#d8cfbc]" />
+                            <Badge
+                              variant={signal.type === "Buy Alert" ? "default" : "destructive"}
+                              className={`${
+                                signal.type === "Buy Alert"
+                                  ? "bg-[#fffbf4] text-[#0a0c0d]"
+                                  : "bg-[#8b2c2c]/80 text-[#f5f5f5]"
+                              } text-[10px] md:text-xs px-3 py-1 rounded-full tracking-wide shadow-[inset_0_0_6px_rgba(255,251,244,0.1)] backdrop-blur-md`}
+                            >
+                              {signal.type}
+                            </Badge>
+                          </div>
+                          <span className="text-[0.7rem] md:text-xs text-[#fffbf4]/80 px-2 py-0.5 rounded-full border border-[#fffbf4]/20 bg-black/20">
+                            {signal.confidence}
+                          </span>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </a>
                 </div>
               </motion.div>
             ))}
@@ -353,8 +346,7 @@ export default function Signals() {
               </button>
 
               <span className="text-[#d8cfbc]/90">
-                Page {currentPage} <span className="opacity-70">of</span>{" "}
-                {totalPages}
+                Page {currentPage} <span className="opacity-70">of</span> {totalPages}
               </span>
 
               <button
@@ -379,11 +371,6 @@ export default function Signals() {
         @keyframes networkGlow {
           0%, 100% { opacity: 0.3; }
           50% { opacity: 0.6; }
-        }
-        @keyframes sheen {
-          0% { transform: translateX(-40%) skewX(-12deg); opacity: 0; }
-          20% { opacity: 0.7; }
-          100% { transform: translateX(250%) skewX(-12deg); opacity: 0; }
         }
 
         .react-datepicker {
