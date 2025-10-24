@@ -18,7 +18,7 @@ export function Footer() {
 
           <div id="social-media-links" className="flex items-center gap-2">
             <a
-              href="https://www.instagram.com/whitesignal/"
+              href="https://www.instagram.com/whitesignal.ai/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 hover:bg-gray-100 rounded transition-colors cursor-pointer"
@@ -26,11 +26,18 @@ export function Footer() {
             >
               <Instagram className="w-5 h-5 lg:w-6 lg:h-6" />
             </a>
-            <div className="p-2 hover:bg-gray-100 rounded transition-colors cursor-pointer">
-              <Linkedin className="w-5 h-5 lg:w-6 lg:h-6" />
-            </div>
             <a
-              href="mailto:contact@whitesignal.com"
+  href="https://www.linkedin.com/in/melwinshibu003"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="p-2 hover:bg-gray-100 rounded transition-colors cursor-pointer"
+  aria-label="WhiteSignal LinkedIn"
+>
+  <Linkedin className="w-5 h-5 lg:w-6 lg:h-6" />
+</a>
+
+            <a
+              href="mailto:whitesignal.ai@gmail.com"
               className="p-2 hover:bg-gray-100 rounded transition-colors cursor-pointer"
               aria-label="Email WhiteSignal"
             >
