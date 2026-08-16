@@ -27,7 +27,7 @@ export default function Signals() {
   const cardsPerPage = 18;
 
   useEffect(() => {
-    fetch("https://35.225.124.79.sslip.io/webhook/signals")
+    fetch("https://34.70.0.159.sslip.io/webhook/signals")
       .then((res) => res.json())
       .then((data) => setSignalsData(data))
       .catch((err) => console.error("Error fetching signals:", err));
