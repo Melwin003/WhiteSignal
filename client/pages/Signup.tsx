@@ -77,7 +77,7 @@ export default function Signup() {
     setLoading(true);
     try {
       const res = await fetch(
-        "https://35.225.124.79.sslip.io/webhook/api/subscribe",
+        "https://34.70.0.159.sslip.io/webhook/api/subscribe",
         {
           method: "POST",
           headers: {
