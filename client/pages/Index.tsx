@@ -24,7 +24,7 @@ function RollupTable() {
 
   const fetchRollups = async (attempt = 1) => {
     try {
-      const res = await fetch("https://35.225.124.79.sslip.io/webhook/rollups");
+      const res = await fetch("https://34.70.0.159.sslip.io/webhook/rollups");
       if (!res.ok) throw new Error(`Server error: ${res.status}`);
       const json = await res.json();
       const data = json.data ?? json;
