@@ -305,15 +305,17 @@ export default function Signals() {
                           <div className="flex items-center gap-2">
                             <TrendingUp size={14} className="text-[#d8cfbc]" />
                             <Badge
-                              variant={signal.type === "Buy Alert" ? "default" : "destructive"}
-                              className={`${
-                                signal.type === "Buy Alert"
-                                  ? "bg-[#fffbf4] text-[#0a0c0d]"
-                                  : "bg-[#8b2c2c]/80 text-[#f5f5f5]"
-                              } text-[10px] md:text-xs px-3 py-1 rounded-full tracking-wide shadow-[inset_0_0_6px_rgba(255,251,244,0.1)] backdrop-blur-md`}
-                            >
-                              {signal.type}
-                            </Badge>
+  variant={signal.type === "Buy Alert" ? "default" : "destructive"}
+  className={`${
+    signal.type === "Buy Alert"
+      ? "bg-[#fffbf4] text-[#0a0c0d]"
+      : "bg-[#8b2c2c]/80 text-[#f5f5f5]"
+  } text-[10px] md:text-xs px-3 py-1 rounded-full tracking-wide shadow-[inset_0_0_6px_rgba(255,251,244,0.1)] backdrop-blur-md`}
+>
+  {signal.type === "Buy Alert"
+    ? "Insider Purchase"
+    : "Insider Sale"}
+</Badge>
                           </div>
                           <span className="text-[0.7rem] md:text-xs text-[#fffbf4]/80 px-2 py-0.5 rounded-full border border-[#fffbf4]/20 bg-black/20">
                             {signal.confidence}
