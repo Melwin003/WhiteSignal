@@ -229,17 +229,14 @@ export default function Signals() {
             </p>
             <hr className="my-3 border-[#d8cfbc]/15 w-[95%] mx-auto" />
             <p>
-              The “<strong>Buy Alert</strong>” and “<strong>Sell Alert</strong>”
-              labels indicate reported
-              <em> insider trading disclosures</em> from public filings. They are
-              presented solely
-              <span className="font-semibold text-[#fffbf4]">
-                {" "}
-                for informational and educational purposes
-              </span>{" "}
-              and do not represent trading advice or recommendations of any
-              kind.
-            </p>
+  The “<strong>Insider Purchase</strong>” and “<strong>Insider Sale</strong>”
+  labels indicate reported <em>insider trading disclosures</em> from public
+  filings. They are presented solely
+  <span className="font-semibold text-[#fffbf4]">
+    {" "}for informational and educational purposes
+  </span>{" "}
+  and do not represent trading advice or recommendations of any kind.
+</p>
           </div>
 
           {/* Cards */}
