@@ -213,34 +213,35 @@ export default function Signals() {
               Type {activeFilter === "type" && "↓"}
             </Badge>
           </div>
-
           {/* Clarification Note */}
-          <div className="max-w-6xl mx-auto mb-12 text-center bg-[#111418]/60 border border-[#d8cfbc]/20 rounded-lg px-6 sm:px-8 py-4 text-[0.88rem] sm:text-[0.95rem] text-[#d8cfbc]/85 leading-relaxed backdrop-blur-md">
-            <p className="mb-2">
-              <strong>Note:</strong> The “Confidence” value displayed on each
-              signal card reflects the
-              <em> signal’s data integrity and extraction accuracy</em>. It
-              measures how certain the system is about the correctness of the
-              underlying data,
-              <span className="font-semibold text-[#fffbf4]">
-                {" "}
-                not a prediction of future performance or financial outcomes.
-              </span>
-            </p>
-            <hr className="my-3 border-[#d8cfbc]/15 w-[95%] mx-auto" />
-            <p>
-              The “<strong>Buy Alert</strong>” and “<strong>Sell Alert</strong>”
-              labels indicate reported
-              <em> insider trading disclosures</em> from public filings. They are
-              presented solely
-              <span className="font-semibold text-[#fffbf4]">
-                {" "}
-                for informational and educational purposes
-              </span>{" "}
-              and do not represent trading advice or recommendations of any
-              kind.
-            </p>
-          </div>
+<div className="max-w-6xl mx-auto mb-12 text-center bg-[#111418]/60 border border-[#d8cfbc]/20 rounded-lg px-6 sm:px-8 py-4 text-[0.88rem] sm:text-[0.95rem] text-[#d8cfbc]/85 leading-relaxed backdrop-blur-md">
+  <p className="mb-2">
+    <strong>Note:</strong> The “Data Extraction Confidence” value displayed
+    on each signal card reflects the
+    <em> data integrity and extraction accuracy</em> of the information
+    extracted from the underlying disclosure. It measures how certain the
+    system is about the correctness and completeness of the extracted data,
+    <span className="font-semibold text-[#fffbf4]">
+      {" "}not a prediction of future performance, financial outcomes, or
+      investment value.
+    </span>
+  </p>
+
+  <hr className="my-3 border-[#d8cfbc]/15 w-[95%] mx-auto" />
+
+  <p>
+    The “<strong>Insider Purchase</strong>” and
+    “<strong>Insider Sale</strong>” labels describe reported transactions
+    involving company insiders based on publicly available filings. They are
+    presented solely
+    <span className="font-semibold text-[#fffbf4]">
+      {" "}for informational and educational purposes
+    </span>{" "}
+    and do not constitute trading advice or recommendations. These labels do
+    not imply that any person or company has violated insider-trading laws or
+    regulations.
+  </p>
+</div>
 
           {/* Cards */}
           <motion.div
@@ -308,15 +309,17 @@ export default function Signals() {
                           <div className="flex items-center gap-2">
                             <TrendingUp size={14} className="text-[#d8cfbc]" />
                             <Badge
-                              variant={signal.type === "Buy Alert" ? "default" : "destructive"}
-                              className={`${
-                                signal.type === "Buy Alert"
-                                  ? "bg-[#fffbf4] text-[#0a0c0d]"
-                                  : "bg-[#8b2c2c]/80 text-[#f5f5f5]"
-                              } text-[10px] md:text-xs px-3 py-1 rounded-full tracking-wide shadow-[inset_0_0_6px_rgba(255,251,244,0.1)] backdrop-blur-md`}
-                            >
-                              {signal.type}
-                            </Badge>
+  variant={signal.type === "Buy Alert" ? "default" : "destructive"}
+  className={`${
+    signal.type === "Buy Alert"
+      ? "bg-[#fffbf4] text-[#0a0c0d]"
+      : "bg-[#8b2c2c]/80 text-[#f5f5f5]"
+  } text-[10px] md:text-xs px-3 py-1 rounded-full tracking-wide shadow-[inset_0_0_6px_rgba(255,251,244,0.1)] backdrop-blur-md`}
+>
+  {signal.type === "Buy Alert"
+    ? "Insider Purchase"
+    : "Insider Sale"}
+</Badge>
                           </div>
                           <span className="text-[0.7rem] md:text-xs text-[#fffbf4]/80 px-2 py-0.5 rounded-full border border-[#fffbf4]/20 bg-black/20">
                             {signal.confidence}
