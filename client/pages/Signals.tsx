@@ -215,7 +215,6 @@ export default function Signals() {
           </div>
 
           {/* Clarification Note */}
-          {/* Clarification Note */}
 <div className="max-w-6xl mx-auto mb-12 text-center bg-[#111418]/60 border border-[#d8cfbc]/20 rounded-lg px-6 sm:px-8 py-4 text-[0.88rem] sm:text-[0.95rem] text-[#d8cfbc]/85 leading-relaxed backdrop-blur-md">
   <p className="mb-2">
     <strong>Note:</strong> The “Data Extraction Confidence” value displayed
