@@ -322,7 +322,7 @@ export default function Signals() {
 </Badge>
                           </div>
                           <span className="text-[0.7rem] md:text-xs text-[#fffbf4]/80 px-2 py-0.5 rounded-full border border-[#fffbf4]/20 bg-black/20">
-                            {signal.confidence}
+                            Data Extraction Confidence: {signal.confidence}
                           </span>
                         </div>
                       </CardContent>
