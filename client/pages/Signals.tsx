@@ -215,20 +215,35 @@ export default function Signals() {
           </div>
 
           {/* Clarification Note */}
-          <div className="max-w-6xl mx-auto mb-12 text-center bg-[#111418]/60 border border-[#d8cfbc]/20 rounded-lg px-6 sm:px-8 py-4 text-[0.88rem] sm:text-[0.95rem] text-[#d8cfbc]/85 leading-relaxed backdrop-blur-md">
-            <p className="mb-2">
-              <strong>Note:</strong> The “Confidence” value displayed on each
-              signal card reflects the
-              <em> signal’s data integrity and extraction accuracy</em>. It
-              measures how certain the system is about the correctness of the
-              underlying data,
-              <span className="font-semibold text-[#fffbf4]">
-                {" "}
-                not a prediction of future performance or financial outcomes.
-              </span>
-            </p>
-            <hr className="my-3 border-[#d8cfbc]/15 w-[95%] mx-auto" />
-            <p>
+          {/* Clarification Note */}
+<div className="max-w-6xl mx-auto mb-12 text-center bg-[#111418]/60 border border-[#d8cfbc]/20 rounded-lg px-6 sm:px-8 py-4 text-[0.88rem] sm:text-[0.95rem] text-[#d8cfbc]/85 leading-relaxed backdrop-blur-md">
+  <p className="mb-2">
+    <strong>Note:</strong> The “Data Extraction Confidence” value displayed
+    on each signal card reflects the
+    <em> data integrity and extraction accuracy</em> of the information
+    extracted from the underlying disclosure. It measures how certain the
+    system is about the correctness and completeness of the extracted data,
+    <span className="font-semibold text-[#fffbf4]">
+      {" "}not a prediction of future performance, financial outcomes, or
+      investment value.
+    </span>
+  </p>
+
+  <hr className="my-3 border-[#d8cfbc]/15 w-[95%] mx-auto" />
+
+  <p>
+    The “<strong>Insider Purchase</strong>” and
+    “<strong>Insider Sale</strong>” labels describe reported transactions
+    involving company insiders based on publicly available filings. They are
+    presented solely
+    <span className="font-semibold text-[#fffbf4]">
+      {" "}for informational and educational purposes
+    </span>{" "}
+    and do not constitute trading advice or recommendations. These labels do
+    not imply that any person or company has violated insider-trading laws or
+    regulations.
+  </p>
+</div>
   The “<strong>Insider Purchase</strong>” and “<strong>Insider Sale</strong>”
   labels indicate reported <em>insider trading disclosures</em> from public
   filings. They are presented solely
