@@ -323,7 +323,6 @@ export default function Signals() {
                           </div>
                           <span className="whitespace-nowrap text-[10px] md:text-xs px-3 py-1 rounded-full border border-[#d8cfbc]/30 text-[#d8cfbc]/80 shrink-0">
   Extraction Confidence: {signal.confidence}
-</span>
                           </span>
                         </div>
                       </CardContent>
