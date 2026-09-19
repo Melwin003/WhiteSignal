@@ -321,8 +321,9 @@ export default function Signals() {
     : "Insider Sale"}
 </Badge>
                           </div>
-                          <span className="text-[0.7rem] md:text-xs text-[#fffbf4]/80 px-2 py-0.5 rounded-full border border-[#fffbf4]/20 bg-black/20">
-                            Extraction Confidence: {signal.confidence}
+                          <span className="whitespace-nowrap text-[10px] md:text-xs px-3 py-1 rounded-full border border-[#d8cfbc]/30 text-[#d8cfbc]/80 shrink-0">
+  Extraction Confidence: {signal.confidence}
+</span>
                           </span>
                         </div>
                       </CardContent>
